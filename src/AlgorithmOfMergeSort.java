@@ -2,31 +2,31 @@ import java.util.ArrayList;
 
 public class AlgorithmOfMergeSort {
     public static ArrayList<Integer> splitArray(ArrayList<Integer> array) {
-        if (array == null) { // Перевірка чи масив не пустий
+        if (array == null) { // Check if array not null
             return null;
         }
-        if (array.size() < 2) { // Перевірка чи у масиві не один елемент
+        if (array.size() < 2) { // Check if array has got more elements than one
             return array;
         }
 
-        ArrayList<Integer> firstTmpArray = new ArrayList<Integer>(); /* Створення тимчасового масива, в якому
-        буде зберігатись перша половина основго масиву */
-        for(int i=0;i<array.size()/2;i++){ // Копіювання першої половини масиву
+        ArrayList<Integer> firstTmpArray = new ArrayList<Integer>(); /* Create a temporary array in which the first
+        half of the main array will be stored */
+        for(int i=0;i<array.size()/2;i++){ // Copying first half of array
             firstTmpArray.add(array.get(i));
         }
 
-        ArrayList<Integer> secondTmpArray = new ArrayList<Integer>();/* Створення тимчасового масива, в якому
-        буде зберігатись друга половина основго масиву */
-        for(int i=firstTmpArray.size(); i<array.size(); i++){// Копіювання другої половини масиву
+        ArrayList<Integer> secondTmpArray = new ArrayList<Integer>();/* Create a temporary array in which the second
+        half of the main array will be stored */
+        for(int i=firstTmpArray.size(); i<array.size(); i++){// Copying second half of array
             secondTmpArray.add(array.get(i));
         }
-        //Треба занести тимчасові масиви у рекурсію функції, щоб у кінці було багато масивів по одному елементі
+        //Enter temporary arrays in recursion that there were many arrays on two elements
         splitArray(firstTmpArray);
         splitArray(secondTmpArray);
 
-        mergeArray(array, firstTmpArray, secondTmpArray); //Після завершення розділення викликається функція зливання
+        mergeArray(array, firstTmpArray, secondTmpArray); //after finish recursion send data to another method
 
-        return array; // повернення відсортованого масиву
+        return array; // return sorted array
     }
 
     private static void mergeArray(ArrayList<Integer> array, ArrayList<Integer> firstTmpArray, ArrayList<Integer> secondTmpArray) {
