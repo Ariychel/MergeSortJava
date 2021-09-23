@@ -6,7 +6,7 @@ public class Main {
     {
         ArrayList<Integer> mainArray= new ArrayList<Integer>();
         Scanner in = new Scanner(System.in);
-        System.out.print("Введіть кількість елементів масиву - ");
+        System.out.print("Input count of elements - ");
         int count = in.nextInt();
 
         for(int i=0; i<count;i++){
@@ -15,7 +15,7 @@ public class Main {
             mainArray.add(tmp);
         }
 
-        System.out.println("Масив до сортування:");
+        System.out.println("Array before sorting:");
 
         for(int i=0; i<count;i++){
             System.out.print(mainArray.get(i)+" ");
@@ -23,7 +23,7 @@ public class Main {
 
         ArrayList<Integer> arraySorted = AlgorithmOfMergeSort.splitArray(mainArray);
         System.out.println();
-        System.out.println("Відсортований масив:");
+        System.out.println("Array after sorting:");
         for(int i=0; i<arraySorted.size();i++){
             System.out.print(arraySorted.get(i)+" ");
         }
